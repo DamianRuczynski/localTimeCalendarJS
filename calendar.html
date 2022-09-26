@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="displayDate">
+            <img src="./icons/icon_calendar.svg" alt="Calendar">
+            <div class="dayShow">
+                <p>Drop Off Date Time</p>
+                <p class="currentDate"></p>
+            </div>
+        </div>
+        <div class="switchTimezone">
+            <p>Warsaw, Poland</p>
+            <label class="switch">
+                <input type="checkbox" onclick="switchTimezone()">
+                <span class="slider round"></span>
+            </label>
+            <p>New York, USA</p>
+        </div>
+    </header>
+
+
+    <section class="calendarSection">
+        <section class="days">
+
+            <div id="monthDisplay">
+                <!-- <button id="backButton">Back</button> -->
+                <img src="./icons/chevron.svg" alt="chevron">
+                <p class="showMonth"></p>
+                <img src="./icons/chevron.svg" alt="chevron">
+                <!-- <button id="nextButton">Next</button> -->
+            </div>
+
+            <div id="weekdays">
+                <div>Sun</div>
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+            </div>
+
+            <div id="calendar"></div>
+        </section>
+        <section class="time">
+            <ul>
+                <!-- <li>0:30 AM</li>
+                <li>1:30 AM</li>
+                <li>2:30 AM</li>
+                <li>3:30 AM</li>
+                <li>4:30 AM</li>
+                <li>5:30 AM</li>
+                <li>6:30 AM</li>
+                <li>7:30 AM</li>
+                <li>8:30 AM</li>
+                <li class="actual" id="page">9:30 AM</li>
+                <li>10:30 AM</li>
+                <li>11:30 AM</li>
+                <li>12:30 AM</li>
+                <li>13:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li>
+                <li>7:30 AM</li> -->
+            </ul>
+        </section>
+    </section>
+    <script src="calendar.js"></script>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+</html>
