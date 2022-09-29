@@ -25,10 +25,10 @@ const changeTimeZone = (date, timeZone) => {
     );
 }
 
-const actualDate = new Date();
+let actualDate = new Date();
 
 //'December 17, 1995 03:44:00'
-const switchedDate = changeTimeZone(new Date(), 'America/New_York');
+let switchedDate = changeTimeZone(new Date(), 'America/New_York');
 
 
 const addDay = (day, actualDay) => {
@@ -168,5 +168,12 @@ const switchTimezone = () => {
 
 
 window.onload = getDaysInMonth(actualDate), generateHours(actualDate);
+setInterval(() => {
+    actualDate = new Date();
+    switchedDate = changeTimeZone(new Date(), 'America/New_York');
+    getDaysInMonth(actualDate);
+    generateHours(actualDate);
+    console.log('trwam');
+}, 6000)
 header.addEventListener('click', () => calendarSection.style.display = 'flex');
 calendarSection.addEventListener('click', () => calendarSection.style.display = 'none');
