@@ -114,6 +114,7 @@ input:checked+.slider {
     border: 2px solid #ddd;
     padding-top: 1.5rem;
     width: 35vw;
+    min-width: 330px;
 }
 
 #calendar,
