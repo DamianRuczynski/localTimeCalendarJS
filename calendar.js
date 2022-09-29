@@ -173,7 +173,6 @@ setInterval(() => {
     switchedDate = changeTimeZone(new Date(), 'America/New_York');
     getDaysInMonth(actualDate);
     generateHours(actualDate);
-    console.log('trwam');
 }, 6000)
 header.addEventListener('click', () => calendarSection.style.display = 'flex');
 calendarSection.addEventListener('click', () => calendarSection.style.display = 'none');
