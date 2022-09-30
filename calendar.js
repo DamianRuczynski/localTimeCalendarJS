@@ -31,12 +31,28 @@ let actualDate = new Date();
 let switchedDate = changeTimeZone(new Date(), 'America/New_York');
 
 
-const addDay = (day, actualDay) => {
+const addDay = (day, actualDay, year, month) => {
     const newDay = document.createElement('div');
     newDay.className = 'day';
     const dayNumber = day.getDate();
     newDay.textContent = dayNumber;
     myCalendar.append(newDay);
+
+    newDay.addEventListener('click', () => {
+        const clickedDate = new Date(year, month, dayNumber);
+        const monthName = monthNames[month];
+        const day = clickedDate.getDate();
+        let customDate;
+        slider.checked ? customDate = switchedDate : customDate = actualDate;
+        const time = customDate.toLocaleTimeString('en-US').split(':');
+        const hour = time[0];
+        const minutes = time[1];
+        const timeAdv = time[2].split(' ')[1];
+        const timeDisplay = hour + ':' + minutes + ' ' + timeAdv;
+        getDaysInMonth(clickedDate);
+        generateHours(actualDate);
+        dateDisplay.textContent = `${monthName.slice(0, 3)} ${day} ${year}, ${timeDisplay}`;
+    });
 
 
     if (dayNumber == actualDay) {
@@ -142,7 +158,7 @@ const getDaysInMonth = (passedDate) => {
                 lastDayofPreviousMonth += 1
             }
             for (let day of days) {
-                addDay(day, actualDay)
+                addDay(day, actualDay, year, month)
             }
         }
         countingPadiingDays += 1
@@ -168,11 +184,13 @@ const switchTimezone = () => {
 
 
 window.onload = getDaysInMonth(actualDate), generateHours(actualDate);
-setInterval(() => {
-    actualDate = new Date();
-    switchedDate = changeTimeZone(new Date(), 'America/New_York');
-    getDaysInMonth(actualDate);
-    generateHours(actualDate);
-}, 6000)
+// setInterval(() => {
+//     actualDate = new Date();
+//     switchedDate = changeTimeZone(new Date(), 'America/New_York');
+//     getDaysInMonth(actualDate);
+//     generateHours(actualDate);
+// }, 6000)
 header.addEventListener('click', () => calendarSection.style.display = 'flex');
-calendarSection.addEventListener('click', () => calendarSection.style.display = 'none');
+// calendarSection.addEventListener('click', () => calendarSection.style.display = 'none');
+
+
